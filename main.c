@@ -2,31 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main() {
+int main(int argc, char *argv[]) {
 
     /* Variable declarations*/
-    char lang[16];
     FILE * fpointer;
 
-    /* Prompt */
-    printf("Enter language:\nCurrent supported languages: C, Java, Javascript, HTML\n");
-    scanf("%s", lang);
-
     /* Determining language and writing file */
-    if (strcasecmp(lang, "java") == 0) {
+    if(strcasecmp(argv[1], "-h") == 0 || strcasecmp(argv[1], "-help") == 0 || strcasecmp(argv[1], "--help") == 0) {
+        printf("Usage:\n\n-h, --help, -help - Displays the help\n-js - Generates a JavaScript Template\n-java - Generates a Java Template\n-html - Generates a HTML Template\n-c - Generates a C Template\n");
+        return 0;
+    }
+
+    if (strcasecmp(argv[1], "-java") == 0) {
         fpointer = fopen("java-template.java", "w");
         fprintf(fpointer, "class java-template.java\n    {\n\n\n    public static void main(String args[])\n    {\n\n    }\n}\n");
     
-    } else if (strcasecmp(lang, "c") == 0) {
+    } else if (strcasecmp(argv[1], "-c") == 0) {
         fpointer = fopen("c-template.c", "w");
         fprintf(fpointer, "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n\n\n\n    return 0;\n}\n");
     
-    } else if (strcasecmp(lang, "javascript") == 0) {
-        fpointer = fopen("javascript-template.js", "w");
-        fprintf(fpointer, "<!DOCTYPE HTML>\n<html>\n\n<body>\n\n   <script>\n   \n   </script>\n\n</body>\n\n</html>\n");
         
-    } else if (strcasecmp(lang, "html") == 0) {
-        fpointer = fopen("javascript-template.html", "w");
+    } else if (strcasecmp(argv[1], "-html") == 0) {
+        fpointer = fopen("html-template.html", "w");
         fprintf(fpointer, "<!DOCTYPE HTML>\n<html>\n\n   <body>\n   \n   \n   </body>\n\n</html>\n");
     
     } else {
