@@ -18,8 +18,6 @@ C
 
 Java
 
-Javascript
-
 HTML
 
 and more to come!

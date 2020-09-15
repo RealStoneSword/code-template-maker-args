@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 
     /* Determining language and writing file */
     if(strcasecmp(argv[1], "-h") == 0 || strcasecmp(argv[1], "-help") == 0 || strcasecmp(argv[1], "--help") == 0) {
-        printf("Usage:\n\n-h, --help, -help - Displays the help\n-js - Generates a JavaScript Template\n-java - Generates a Java Template\n-html - Generates a HTML Template\n-c - Generates a C Template\n");
+        printf("Usage:\n\n-h, --help, -help - Displays the help\njava - Generates a Java Template\n-html - Generates a HTML Template\n-c - Generates a C Template\n");
         return 0;
     }
 
